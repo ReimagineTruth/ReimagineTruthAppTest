@@ -1,0 +1,29 @@
+ReimagineTruth/
+├── assets/
+│   ├── images/          # Card images, graphics, etc.
+│   ├── icons/           # Icons for UI/UX elements
+│   └── logos/           # Project logos and branding
+├── contracts/           # Smart contracts related to the NFTs and token
+│   ├── TruthSeekersNFT.sol
+│   ├── RTOtoken.sol
+│   └── Migrations.sol
+├── docs/                 # Documentation for your project
+│   ├── whitepaper.md     # Detailed explanation of your project
+│   ├── roadmap.md        # Project milestones and future plans
+│   └── how-to.md         # User guides (e.g., how to buy NFTs)
+├── src/                  # Frontend source code
+│   ├── components/       # Reusable components for UI (e.g., CardComponent)
+│   ├── pages/            # Pages of the application (e.g., Home, Collection)
+│   ├── utils/            # Utility functions (e.g., wallet connection, helpers)
+│   ├── App.js            # Main React entry point
+│   ├── index.js          # Project entry point
+│   └── style/            # Styling files (CSS, SCSS, etc.)
+├── test/                 # Unit tests for smart contracts
+│   ├── TruthSeekersNFT.test.js
+│   ├── RTOtoken.test.js
+│   └── integrationTests/
+├── .gitignore            # Git ignore file to exclude node_modules, logs, etc.
+├── README.md             # Project documentation (this file)
+├── package.json          # Node.js dependencies and scripts
+├── truffle-config.js     # Truffle configuration for smart contract deployment
+└── LICENSE               # License for your project (e.g., MIT)
