@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Effect</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #001f3d;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.2; }
+            50% { opacity: 1; }
+            100% { opacity: 0.2; }
+        }
+
+        .star:nth-child(1) {
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+        .star:nth-child(2) {
+            animation-duration: 4s;
+            animation-delay: 1s;
+        }
+        .star:nth-child(3) {
+            animation-duration: 3s;
+            animation-delay: 0.5s;
+        }
+        /* Add more stars as needed */
+    </style>
+</head>
+<body>
+
+    <!-- Stars Elements -->
+    <div class="star" style="left: 10%; top: 10%"></div>
+    <div class="star" style="left: 30%; top: 20%"></div>
+    <div class="star" style="left: 50%; top: 5%"></div>
+    <div class="star" style="left: 70%; top: 25%"></div>
+    <div class="star" style="left: 90%; top: 10%"></div>
+
+    <script>
+        // Dynamically create more stars
+        for (let i = 0; i < 50; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            document.body.appendChild(star);
+        }
+    </script>
+
+</body>
+</html>
