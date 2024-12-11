@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Profile Sidebar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .light-mode {
+      background-color: white;
+      color: black;
+    }
+  </style>
+</head>
+<body class="dark-mode" data-theme="dark">
+  <div class="p-4 max-w-xs mx-auto h-screen overflow-y-auto">
+    <div class="flex items-center mb-4">
+      <img alt="Profile picture" class="rounded-full w-12 h-12" height="50" src="https://storage.googleapis.com/a1aa/image/WcKJu7tzFXomLFS6F4XR8CBhpwmOKxwsS5RxMX3FFhXqIf8JA.jpg" width="50"/>
+      <div class="ml-4">
+        <h1 class="text-lg font-bold">Reimagine Truth</h1>
+        <p class="text-gray-500">@reimagine_truth</p>
+      </div>
+      <i class="fas fa-user-plus ml-auto"></i>
+    </div>
+    
+    <div class="flex mb-4">
+      <span class="mr-4"><strong>76</strong> Following</span>
+      <span><strong>13</strong> Followers</span>
+    </div>
+    
+    <nav>
+      <ul>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-user mr-4"></i>
+          <a class="hover:underline" href="#profile">Profile</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-crown mr-4"></i>
+          <a class="hover:underline" href="#premium">Premium</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-bookmark mr-4"></i>
+          <a class="hover:underline" href="#bookmarks">Bookmarks</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-briefcase mr-4"></i>
+          <a class="hover:underline" href="#jobs">Jobs</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-list mr-4"></i>
+          <a class="hover:underline" href="#lists">Lists</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-smile mr-4"></i>
+          <a class="hover:underline" href="#spaces">Spaces</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-dollar-sign mr-4"></i>
+          <a class="hover:underline" href="#monetization">Monetization</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <hr class="border-gray-700 my-4"/>
+    
+    <nav>
+      <ul>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-cog mr-4"></i>
+          <a class="hover:underline" href="#settings">Settings and privacy</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-question-circle mr-4"></i>
+          <a class="hover:underline" href="#help">Help Center</a>
+        </li>
+        <li class="flex items-center mb-4">
+          <i class="fas fa-shopping-cart mr-4"></i>
+          <a class="hover:underline" href="#purchases">Purchases</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <div class="mt-4">
+      <i class="fas fa-moon cursor-pointer" onclick="toggleTheme()"></i>
+    </div>
+  </div>
+  
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const currentTheme = body.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        body.setAttribute('data-theme', 'light');
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      }
+    }
+  </script>
+</body>
+</html>
