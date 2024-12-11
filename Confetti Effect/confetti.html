@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confetti Effect</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #282c34;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .confetti:nth-child(1) {
+            animation-duration: 5s;
+            animation-delay: 0s;
+            background-color: red;
+        }
+        .confetti:nth-child(2) {
+            animation-duration: 4s;
+            animation-delay: 1s;
+            background-color: yellow;
+        }
+        .confetti:nth-child(3) {
+            animation-duration: 3s;
+            animation-delay: 2s;
+            background-color: blue;
+        }
+        /* More confetti colors and sizes */
+    </style>
+</head>
+<body>
+
+    <!-- Confetti Elements -->
+    <div class="confetti" style="left: 20%; top: 0;"></div>
+    <div class="confetti" style="left: 40%; top: 0;"></div>
+    <div class="confetti" style="left: 60%; top: 0;"></div>
+    <div class="confetti" style="left: 80%; top: 0;"></div>
+
+    <script>
+        // Dynamically create more confetti pieces
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDuration = Math.random() * 4 + 3 + 's'; // Random duration
+            confetti.style.animationDelay = Math.random() * 3 + 's'; // Random delay
+            document.body.appendChild(confetti);
+        }
+    </script>
+
+</body>
+</html>
