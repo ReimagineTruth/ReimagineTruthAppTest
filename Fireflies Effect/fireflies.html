@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireflies Effect</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #0f0f0f;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .firefly {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #FFFF99;
+            border-radius: 50%;
+            animation: flicker 1.5s infinite, move 10s infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
+        @keyframes move {
+            0% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-100px) translateX(100px); }
+            100% { transform: translateY(0) translateX(0); }
+        }
+
+        .firefly:nth-child(1) {
+            animation-duration: 1.2s, 12s;
+            animation-delay: 0s;
+        }
+        .firefly:nth-child(2) {
+            animation-duration: 1.5s, 15s;
+            animation-delay: 1s;
+        }
+        .firefly:nth-child(3) {
+            animation-duration: 1.3s, 10s;
+            animation-delay: 2s;
+        }
+        /* Add more fireflies as needed */
+    </style>
+</head>
+<body>
+
+    <!-- Fireflies Elements -->
+    <div class="firefly" style="left: 20%; top: 10%"></div>
+    <div class="firefly" style="left: 40%; top: 30%"></div>
+    <div class="firefly" style="left: 60%; top: 15%"></div>
+    <div class="firefly" style="left: 80%; top: 25%"></div>
+    <div class="firefly" style="left: 90%; top: 50%"></div>
+
+    <script>
+        // Dynamically create more fireflies
+        for (let i = 0; i < 50; i++) {
+            const firefly = document.createElement('div');
+            firefly.classList.add('firefly');
+            firefly.style.left = Math.random() * 100 + '%';
+            firefly.style.top = Math.random() * 100 + '%';
+            document.body.appendChild(firefly);
+        }
+    </script>
+
+</body>
+</html>
