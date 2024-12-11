@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    background-color: #0f0f0f;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #FFFF99;
+    border-radius: 50%;
+    animation: flicker 1.5s infinite, move 10s infinite;
+    opacity: 0.5;
+}
+
+@keyframes flicker {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+@keyframes move {
+    0% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-100px) translateX(100px); }
+    100% { transform: translateY(0) translateX(0); }
+}
