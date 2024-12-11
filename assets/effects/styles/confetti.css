@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #282c34;
+    overflow: hidden;
+    position: relative;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+    }
+}
