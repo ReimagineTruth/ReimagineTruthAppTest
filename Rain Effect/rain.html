@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rain Effect</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: #001f3d;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            animation: fall 0.5s linear infinite;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100px); }
+            100% { transform: translateY(100vh); }
+        }
+
+        .raindrop:nth-child(1) {
+            animation-duration: 0.5s;
+            animation-delay: 0s;
+        }
+        .raindrop:nth-child(2) {
+            animation-duration: 0.8s;
+            animation-delay: 1s;
+        }
+        .raindrop:nth-child(3) {
+            animation-duration: 1s;
+            animation-delay: 0.5s;
+        }
+        /* Add more raindrops as needed */
+    </style>
+</head>
+<body>
+
+    <!-- Raindrop Elements -->
+    <div class="raindrop" style="left: 20%; top: 0;"></div>
+    <div class="raindrop" style="left: 40%; top: 0;"></div>
+    <div class="raindrop" style="left: 60%; top: 0;"></div>
+    <div class="raindrop" style="left: 80%; top: 0;"></div>
+
+    <script>
+        // Dynamically create more raindrops
+        for (let i = 0; i < 100; i++) {
+            const raindrop = document.createElement('div');
+            raindrop.classList.add('raindrop');
+            raindrop.style.left = Math.random() * 100 + '%';
+            raindrop.style.animationDuration = Math.random() * 0.6 + 0.4 + 's'; // Random duration
+            raindrop.style.animationDelay = Math.random() * 1 + 's'; // Random delay
+            document.body.appendChild(raindrop);
+        }
+    </script>
+
+</body>
+</html>
