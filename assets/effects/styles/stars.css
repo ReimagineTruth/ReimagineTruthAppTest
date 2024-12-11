@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    background-color: #001f3d;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
