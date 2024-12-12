@@ -70,7 +70,7 @@
             font-weight: 700;
         }
         .menu-divider {
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #2D3748;
             margin: 0.5rem 0;
         }
         .search-bar {
@@ -111,10 +111,22 @@
         .smooth-transition {
             transition: all 0.3s ease-in-out;
         }
+        .header-footer-line {
+            border-bottom: 1px solid #2D3748;
+        }
+        .menu-line {
+            border-right: 1px solid #2D3748;
+        }
+        .footer-line {
+            border-top: 1px solid #2D3748;
+        }
+        .right-drawer-line {
+            border-left: 1px solid #2D3748;
+        }
     </style>
 </head>
 <body class="bg-black text-white transition-colors dark-mode smooth-transition">
-    <div class="fixed top-0 left-0 right-0 bg-black text-white flex justify-between items-center h-16 px-4 transition-colors dark-mode smooth-transition">
+    <div class="fixed top-0 left-0 right-0 bg-black text-white flex justify-between items-center h-16 px-4 transition-colors dark-mode smooth-transition header-footer-line">
         <div class="flex items-center">
             <button id="menuButton" class="text-white mr-4">
                 <i class="fas fa-bars text-xl sm:text-2xl"></i>
@@ -138,10 +150,7 @@
             </a>
         </div>
     </div>
-    <div class="sm:hidden fixed top-16 left-0 right-0 bg-black text-white flex justify-center items-center h-12 px-4 transition-colors dark-mode smooth-transition">
-        <input type="text" placeholder="🔍 Search..." class="search-bar w-full">
-    </div>
-    <div id="menuDrawer" class="fixed top-0 left-0 h-full w-64 bg-black text-white drawer transition-colors dark-mode smooth-transition">
+    <div id="menuDrawer" class="fixed top-0 left-0 h-full w-64 bg-black text-white drawer transition-colors dark-mode smooth-transition menu-line">
         <div class="p-4">
             <button id="closeButton" class="text-white mb-4">
                 <i class="fas fa-times text-xl sm:text-2xl"></i>
@@ -168,7 +177,7 @@
             </ul>
         </div>
     </div>
-    <div id="rightDrawer" class="fixed top-0 right-0 h-full w-64 bg-black text-white right-drawer transition-colors dark-mode smooth-transition">
+    <div id="rightDrawer" class="fixed top-0 right-0 h-full w-64 bg-black text-white right-drawer transition-colors dark-mode smooth-transition menu-line right-drawer-line">
         <div class="p-4">
             <button id="closeRightButton" class="text-white mb-4">
                 <i class="fas fa-times text-xl sm:text-2xl"></i>
@@ -180,7 +189,7 @@
             </ul>
         </div>
     </div>
-    <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-colors dark-mode smooth-transition">
+    <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-colors dark-mode smooth-transition header-footer-line footer-line">
         <div class="flex justify-around items-center h-16">
             <a href="home.html" class="relative menu-item text-white">
                 <i class="fas fa-home text-xl sm:text-2xl"></i>
