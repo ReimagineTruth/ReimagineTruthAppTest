@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listing - Reimagine Truth</title>
+    <title>Reimagine Truth</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
@@ -12,10 +11,40 @@
             font-family: 'Roboto', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
             scroll-behavior: smooth;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
         .light-mode {
             background-color: #ffffff;
+            color: #1a202c;
+        }
+        .light-mode .bg-gray-800 {
+            background-color: #ffffff;
+        }
+        .light-mode .text-gray-200 {
+            color: #1a202c;
+        }
+        .light-mode .text-gray-400 {
+            color: #4a5568;
+        }
+        .light-mode .bg-gray-700 {
+            background-color: #ffffff;
+        }
+        .light-mode .bg-gray-900 {
+            background-color: #ffffff;
+        }
+        .light-mode .border-gray-700 {
+            border-color: #e2e8f0;
+        }
+        .light-mode .text-blue-500 {
+            color: #3182ce;
+        }
+        .light-mode .hover\:bg-gray-600:hover {
+            background-color: #e2e8f0;
+        }
+        .light-mode .bg-black {
+            background-color: #ffffff;
+        }
+        .light-mode .text-white {
             color: #1a202c;
         }
         .nav-link {
@@ -24,25 +53,329 @@
         .nav-link:hover {
             color: #63B3ED;
         }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background: white;
+            width: 5px; /* Reduced width to minimize shakiness */
+            height: 5px; /* Reduced height to match width */
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                opacity: 0.5;
+                transform: translateY(0);
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(90vh); /* Adjusted to fade out before reaching the footer */
+            }
+        }
+        .bottom-drawer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #000000;
+            color: white;
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .bottom-drawer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+        .bottom-drawer a:hover {
+            color: #63B3ED;
+            transform: scale(1.1);
+        }
+        .bottom-drawer i {
+            margin-bottom: 0.25rem;
+        }
+        .hidden {
+            display: none;
+        }
+        .block {
+            display: block;
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 50px;
+            right: 30px;
+            display: none;
+            z-index: 100;
+        }
+        .back-to-top i {
+            font-size: 24px;
+            color: white;
+            background-color: #000000;
+            padding: 10px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .back-to-top i:hover {
+            background-color: #63B3ED;
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
-<body class="bg-black text-gray-200">
-    <header class="bg-black p-4 text-center">
-        <h1 class="text-2xl md:text-3xl font-bold text-white">Reimagine Truth - Listing</h1>
+<body class="bg-black text-gray-200 overflow-hidden transition-all">
+    <header class="bg-black p-4 text-center relative transition-all">
+        <h1 class="text-2xl md:text-3xl font-bold text-white transition-all" id="header-title">Reimagine Truth</h1>
+        <div class="absolute top-4 right-4 flex space-x-2">
+            <button class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="snow-toggle" aria-label="Toggle Snow">
+                <i class="fas fa-snowflake text-blue-500"></i>
+            </button>
+        </div>
     </header>
-
-    <!-- Navigation -->
-    <nav class="bg-black p-4">
+    <!-- Desktop Navigation -->
+    <nav class="bg-black p-4 hidden md:block transition-all" id="desktop-menu">
         <ul class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 text-lg">
-            <li><a class="nav-link" href="homepage.html"><i class="fas fa-home mr-2"></i>Home</a></li>
-            <li><a class="nav-link" href="my-assets.html"><i class="fas fa-wallet mr-2"></i>My Assets</a></li>
-            <li><a class="nav-link" href="about.html"><i class="fas fa-info-circle mr-2"></i>About</a></li>
-            <li><a class="nav-link" href="community.html"><i class="fas fa-users mr-2"></i>Community</a></li>
-            <li><a class="nav-link" href="news.html"><i class="fas fa-newspaper mr-2"></i>News</a></li>
-            <li><a class="nav-link" href="settings.html"><i class="fas fa-cog mr-2"></i>Settings</a></li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="homepage.html" data-file="homepage.html">
+                    <i class="fas fa-home mr-2"></i>
+                    Home
+                    <span class="tooltiptext">Go to Home Page</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="my-assets.html" data-file="my-assets.html">
+                    <i class="fas fa-wallet mr-2"></i>
+                    My Assets
+                    <span class="tooltiptext">View My Assets</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="about.html" data-file="about.html">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    About
+                    <span class="tooltiptext">Learn About Us</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="community.html" data-file="community.html">
+                    <i class="fas fa-users mr-2"></i>
+                    Community
+                    <span class="tooltiptext">Join the Community</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="newsfeed.html" data-file="newsfeed.html">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    News
+                    <span class="tooltiptext">Read the News</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="settings.html" data-file="settings.html">
+                    <i class="fas fa-cog mr-2"></i>
+                    Settings
+                    <span class="tooltiptext">Adjust Settings</span>
+                </a>
+            </li>
         </ul>
     </nav>
+    <!-- Mobile Navigation -->
+    <button aria-label="Toggle Menu" class="md:hidden text-gray-200 p-4 absolute top-4 left-4" id="menu-button">
+        <span class="fas fa-bars"></span>
+    </button>
+    <nav class="bg-black p-4 md:hidden hidden transition-all" id="mobile-menu">
+        <ul class="flex flex-col space-y-4 text-lg">
+            <li>
+                <a class="nav-link flex items-center tooltip" href="homepage.html" data-file="homepage.html">
+                    <i class="fas fa-home mr-2"></i>
+                    Home
+                    <span class="tooltiptext">Go to Home Page</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="my-assets.html" data-file="my-assets.html">
+                    <i class="fas fa-wallet mr-2"></i>
+                    My Assets
+                    <span class="tooltiptext">View My Assets</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="about.html" data-file="about.html">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    About
+                    <span class="tooltiptext">Learn About Us</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="community.html" data-file="community.html">
+                    <i class="fas fa-users mr-2"></i>
+                    Community
+                    <span class="tooltiptext">Join the Community</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="newsfeed.html" data-file="newsfeed.html">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    News
+                    <span class="tooltiptext">Read the News</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="settings.html" data-file="settings.html">
+                    <i class="fas fa-cog mr-2"></i>
+                    Settings
+                    <span class="tooltiptext">Adjust Settings</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-all" id="footer">
+        <div class="flex justify-around items-center py-2 sm:py-4">
+            <a href="index.html" class="flex flex-col items-center button-click tooltip" data-file="index.html">
+                <i class="fas fa-home text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Home</span>
+                <span class="tooltiptext">Go to Home Page</span>
+            </a>
+            <a href="wiki.html" class="flex flex-col items-center button-click tooltip" data-file="wiki.html">
+                <i class="fas fa-book text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Wiki</span>
+                <span class="tooltiptext">Read Wiki</span>
+            </a>
+            <a href="whitepaper.html" class="relative flex flex-col items-center button-click tooltip" data-file="whitepaper.html">
+                <i class="fas fa-file-alt text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Whitepaper</span>
+                <span class="tooltiptext">Read Whitepaper</span>
+            </a>
+            <a href="rto-token.html" class="flex flex-col items-center button-click tooltip" data-file="rto-token.html">
+                <i class="fas fa-coins text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">RTO Token</span>
+                <span class="tooltiptext">View RTO Token</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center button-click tooltip" data-file="profile.html">
+                <i class="fas fa-user-circle text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Profile</span>
+                <span class="tooltiptext">View Profile</span>
+            </a>
+            <a href="listing.html" class="relative flex flex-col items-center button-click tooltip" data-file="listing.html">
+                <i class="fas fa-list text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Listing</span>
+                <span class="tooltiptext">View Listings</span>
+            </a>
+        </div>
+    </div>
+    <audio id="click-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script>
+        // Christmas Effect
+        let snowInterval;
+        const snowToggle = document.getElementById('snow-toggle');
+        snowToggle.addEventListener('click', () => {
+            if (snowInterval) {
+                clearInterval(snowInterval);
+                snowInterval = null;
+                snowToggle.innerHTML = '<i class="fas fa-snowflake text-blue-500"></i>';
+            } else {
+                snowInterval = setInterval(createSnowflake, 200);
+                snowToggle.innerHTML = '<i class="fas fa-snowflake text-blue-500"></i>';
+            }
+        });
 
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            
+            snowflake.style.left = Math.random() * window.innerWidth + 'px';
+            snowflake.style.animationDuration = Math.random() * 3 + 7 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 5 + 5 + 'px'; /* Adjusted font size to match new width */
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 10000);
+        }
+
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
+        });
+
+        // Add click animation
+        const buttons = document.querySelectorAll('.button-click');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.add('button-click');
+                setTimeout(() => {
+                    button.classList.remove('button-click');
+                }, 200);
+            });
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('bg-gray-900');
+            document.body.classList.toggle('bg-white');
+            document.body.classList.toggle('text-gray-200');
+            document.body.classList.toggle('text-gray-900');
+            document.body.classList.toggle('light-mode');
+            themeToggle.innerHTML = document.body.classList.contains('light-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
     <!-- Main Content -->
     <main class="p-4">
         <section class="max-w-4xl mx-auto">
