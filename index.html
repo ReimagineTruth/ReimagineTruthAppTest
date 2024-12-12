@@ -1,16 +1,13 @@
 <html lang="en">
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>
-   TruthWeb
-  </title>
-  <script src="https://cdn.tailwindcss.com">
-  </script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
-  <style>
-   body {
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reimagine Truth</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
             font-family: 'Roboto', sans-serif;
             transition: background-color 0.3s ease, color 0.3s ease;
             scroll-behavior: smooth;
@@ -160,206 +157,157 @@
         .transition-all {
             transition: all 0.3s ease;
         }
-  </style>
- </head>
- <body class="bg-black text-gray-200 overflow-hidden transition-all">
-  <header class="bg-black p-4 text-center relative transition-all">
-   <div class="flex justify-center items-center">
-    <h1 class="text-2xl md:text-3xl font-bold text-white transition-all" id="header-title">
-     TruthWeb
-    </h1>
-   </div>
-   <div class="absolute top-4 right-4 flex space-x-2">
-    <button aria-label="Toggle Theme" class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="theme-toggle">
-     <i class="fas fa-moon">
-     </i>
+    </style>
+</head>
+<body class="bg-black text-gray-200 overflow-hidden transition-all">
+    <header class="bg-black p-4 text-center relative transition-all">
+        <h1 class="text-2xl md:text-3xl font-bold text-white transition-all" id="header-title">Reimagine Truth</h1>
+        <div class="absolute top-4 right-4 flex space-x-2">
+            <button class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="theme-toggle" aria-label="Toggle Theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="snow-toggle" aria-label="Toggle Snow">
+                <i class="fas fa-snowflake text-blue-500"></i>
+            </button>
+        </div>
+    </header>
+    <!-- Desktop Navigation -->
+    <nav class="bg-black p-4 hidden md:block transition-all" id="desktop-menu">
+        <ul class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 text-lg">
+            <li>
+                <a class="nav-link flex items-center tooltip" href="homepage.html" data-file="homepage.html">
+                    <i class="fas fa-home mr-2"></i>
+                    Home
+                    <span class="tooltiptext">Go to Home Page</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="my-assets.html" data-file="my-assets.html">
+                    <i class="fas fa-wallet mr-2"></i>
+                    My Assets
+                    <span class="tooltiptext">View My Assets</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="about.html" data-file="about.html">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    About
+                    <span class="tooltiptext">Learn About Us</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="community.html" data-file="community.html">
+                    <i class="fas fa-users mr-2"></i>
+                    Community
+                    <span class="tooltiptext">Join the Community</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="newsfeed.html" data-file="newsfeed.html">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    News
+                    <span class="tooltiptext">Read the News</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="settings.html" data-file="settings.html">
+                    <i class="fas fa-cog mr-2"></i>
+                    Settings
+                    <span class="tooltiptext">Adjust Settings</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- Mobile Navigation -->
+    <button aria-label="Toggle Menu" class="md:hidden text-gray-200 p-4 absolute top-4 left-4" id="menu-button">
+        <span class="fas fa-bars"></span>
     </button>
-    <button aria-label="Toggle Snow" class="p-2 bg-gray-700 text-white rounded-full hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform transform hover:scale-110" id="snow-toggle">
-     <i class="fas fa-snowflake text-blue-500">
-     </i>
+    <nav class="bg-black p-4 md:hidden hidden transition-all" id="mobile-menu">
+        <ul class="flex flex-col space-y-4 text-lg">
+            <li>
+                <a class="nav-link flex items-center tooltip" href="homepage.html" data-file="homepage.html">
+                    <i class="fas fa-home mr-2"></i>
+                    Home
+                    <span class="tooltiptext">Go to Home Page</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="my-assets.html" data-file="my-assets.html">
+                    <i class="fas fa-wallet mr-2"></i>
+                    My Assets
+                    <span class="tooltiptext">View My Assets</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="about.html" data-file="about.html">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    About
+                    <span class="tooltiptext">Learn About Us</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="community.html" data-file="community.html">
+                    <i class="fas fa-users mr-2"></i>
+                    Community
+                    <span class="tooltiptext">Join the Community</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="newsfeed.html" data-file="newsfeed.html">
+                    <i class="fas fa-newspaper mr-2"></i>
+                    News
+                    <span class="tooltiptext">Read the News</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-link flex items-center tooltip" href="settings.html" data-file="settings.html">
+                    <i class="fas fa-cog mr-2"></i>
+                    Settings
+                    <span class="tooltiptext">Adjust Settings</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-all" id="footer">
+        <div class="flex justify-around items-center py-2 sm:py-4">
+            <a href="index.html" class="flex flex-col items-center button-click tooltip" data-file="index.html">
+                <i class="fas fa-home text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Home</span>
+                <span class="tooltiptext">Go to Home Page</span>
+            </a>
+            <a href="wiki.html" class="flex flex-col items-center button-click tooltip" data-file="wiki.html">
+                <i class="fas fa-book text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Wiki</span>
+                <span class="tooltiptext">Read Wiki</span>
+            </a>
+            <a href="whitepaper.html" class="relative flex flex-col items-center button-click tooltip" data-file="whitepaper.html">
+                <i class="fas fa-file-alt text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Whitepaper</span>
+                <span class="tooltiptext">Read Whitepaper</span>
+            </a>
+            <a href="rto-token.html" class="flex flex-col items-center button-click tooltip" data-file="rto-token.html">
+                <i class="fas fa-coins text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">RTO Token</span>
+                <span class="tooltiptext">View RTO Token</span>
+            </a>
+            <a href="profile.html" class="flex flex-col items-center button-click tooltip" data-file="profile.html">
+                <i class="fas fa-user-circle text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Profile</span>
+                <span class="tooltiptext">View Profile</span>
+            </a>
+            <a href="listing.html" class="relative flex flex-col items-center button-click tooltip" data-file="listing.html">
+                <i class="fas fa-list text-xl sm:text-2xl"></i>
+                <span class="text-xs sm:text-sm">Listing</span>
+                <span class="tooltiptext">View Listings</span>
+            </a>
+        </div>
+    </div>
+    <audio id="click-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </button>
-   </div>
-  </header>
-  <!-- Desktop Navigation -->
-  <nav class="bg-black p-4 hidden md:block transition-all" id="desktop-menu">
-   <ul class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6 text-lg">
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="homepage.html" href="homepage.html">
-      <img alt="Home icon" class="w-6 h-6 mr-2" src="https://www.flaticon.com/free-icon/homepage_3094357?term=home.png"/>
-      Home Page
-      <span class="tooltiptext">
-       Go to Home Page
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="my-assets.html" href="my-assets.html">
-      <i class="fas fa-wallet mr-2">
-      </i>
-      My Assets
-      <span class="tooltiptext">
-       View My Assets
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="about.html" href="about.html">
-      <i class="fas fa-info-circle mr-2">
-      </i>
-      About
-      <span class="tooltiptext">
-       Learn About Us
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="community.html" href="community.html">
-      <i class="fas fa-users mr-2">
-      </i>
-      Community
-      <span class="tooltiptext">
-       Join the Community
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="newsfeed.html" href="newsfeed.html">
-      <i class="fas fa-newspaper mr-2">
-      </i>
-      News
-      <span class="tooltiptext">
-       Read the News
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="settings.html" href="settings.html">
-      <i class="fas fa-cog mr-2">
-      </i>
-      Settings
-      <span class="tooltiptext">
-       Adjust Settings
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
-  <!-- Mobile Navigation -->
-  <button aria-label="Toggle Menu" class="md:hidden text-gray-200 p-4 absolute top-4 left-4" id="menu-button">
-   <img alt="Menu icon" class="w-6 h-6" src="https://cdn-icons-png.flaticon.com/512/3603/3603527.png"/>
-  </button>
-  <nav class="bg-black p-4 md:hidden hidden transition-all" id="mobile-menu">
-   <ul class="flex flex-col space-y-4 text-lg">
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="homepage.html" href="homepage.html">
-      <img alt="Home icon" class="w-6 h-6 mr-2" src="https://cdn-icons-png.flaticon.com/512/10263/10263405.png"/>
-      Home Page
-      <span class="tooltiptext">
-       Go to Home Page
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="my-assets.html" href="my-assets.html">
-      <i class="fas fa-wallet mr-2">
-      </i>
-      My Assets
-      <span class="tooltiptext">
-       View My Assets
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="about.html" href="about.html">
-      <i class="fas fa-info-circle mr-2">
-      </i>
-      About
-      <span class="tooltiptext">
-       Learn About Us
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="community.html" href="community.html">
-      <i class="fas fa-users mr-2">
-      </i>
-      Community
-      <span class="tooltiptext">
-       Join the Community
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="newsfeed.html" href="newsfeed.html">
-      <i class="fas fa-newspaper mr-2">
-      </i>
-      News
-      <span class="tooltiptext">
-       Read the News
-      </span>
-     </a>
-    </li>
-    <li>
-     <a class="nav-link flex items-center tooltip" data-file="settings.html" href="settings.html">
-      <i class="fas fa-cog mr-2">
-      </i>
-      Settings
-      <span class="tooltiptext">
-       Adjust Settings
-      </span>
-     </a>
-    </li>
-   </ul>
-  </nav>
-  <!-- Footer Navigation -->
-  <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-all" id="footer">
-   <div class="flex justify-around items-center py-2 sm:py-4">
-    <a class="flex flex-col items-center button-click tooltip" data-file="index.html" href="index.html">
-     <img alt="Home icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/10263/10263405.png"/>
-     <span class="tooltiptext">
-      Go to Home Page
-     </span>
-    </a>
-    <a class="flex flex-col items-center button-click tooltip" data-file="wiki.html" href="wiki.html">
-     <img alt="Wiki icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/837/837697.png"/>
-     <span class="tooltiptext">
-      Read Wiki
-     </span>
-    </a>
-    <a class="relative flex flex-col items-center button-click tooltip" data-file="whitepaper.html" href="whitepaper.html">
-     <img alt="Contract icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/684/684930.png"/>
-     <span class="tooltiptext">
-      Read Whitepaper
-     </span>
-    </a>
-    <a class="flex flex-col items-center button-click tooltip" data-file="rto-token.html" href="rto-token.html">
-     <img alt="Coin icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/10693/10693001.png"/>
-     <span class="tooltiptext">
-      View RTO Token
-     </span>
-    </a>
-    <a class="flex flex-col items-center button-click tooltip" data-file="profile.html" href="profile.html">
-     <img alt="User icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"/>
-     <span class="tooltiptext">
-      View Profile
-     </span>
-    </a>
-    <a class="relative flex flex-col items-center button-click tooltip" data-file="listing.html" href="listing.html">
-     <img alt="Exchange icon" class="w-6 h-6 sm:w-8 sm:h-8" src="https://cdn-icons-png.flaticon.com/512/9721/9721305.png"/>
-     <span class="tooltiptext">
-      View Listings
-     </span>
-    </a>
-   </div>
-  </div>
-  <audio id="click-sound" preload="auto" src="https://www.soundjay.com/button/sounds/button-16.mp3">
-  </audio>
-  <button class="back-to-top" id="back-to-top">
-   <i class="fas fa-arrow-up">
-   </i>
-  </button>
-  <script>
-   // Christmas Effect
+    <script>
+        // Christmas Effect
         let snowInterval;
         const snowToggle = document.getElementById('snow-toggle');
         snowToggle.addEventListener('click', () => {
@@ -428,6 +376,6 @@
             document.body.classList.toggle('light-mode');
             themeToggle.innerHTML = document.body.classList.contains('light-mode') ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
         });
-  </script>
- </body>
+    </script>
+</body>
 </html>
