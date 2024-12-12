@@ -86,30 +86,80 @@
             outline: none;
             width: 300px;
         }
+        .content-wrapper {
+            overflow-y: auto;
+            height: calc(100vh - 4rem - 4rem); /* Adjust height to account for header and footer */
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        .main-content {
+            width: 100%;
+            max-width: 600px; /* Adjust the max-width as needed */
+        }
+        .dark-mode {
+            background-color: #000;
+            color: #fff;
+        }
+        .light-mode {
+            background-color: #fff;
+            color: #000;
+        }
+        .transition-colors {
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .smooth-transition {
+            transition: all 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="bg-black text-white">
-    <div class="fixed top-0 left-0 m-4 flex items-center">
-        <button id="menuButton" class="text-white mr-4">
-            <i class="fas fa-bars text-xl sm:text-2xl"></i>
-        </button>
-        <span class="logo-text">TruthWeb</span>
+<body class="bg-black text-white transition-colors dark-mode smooth-transition">
+    <div class="fixed top-0 left-0 right-0 bg-black text-white flex justify-between items-center h-16 px-4 transition-colors dark-mode smooth-transition">
+        <div class="flex items-center">
+            <button id="menuButton" class="text-white mr-4">
+                <i class="fas fa-bars text-xl sm:text-2xl"></i>
+            </button>
+            <a href="home.html" class="text-white mr-4 flex items-center">
+                <span class="logo-text ml-2">TruthWeb</span>
+            </a>
+        </div>
+        <div class="hidden sm:block">
+            <input type="text" placeholder="🔍 Search..." class="search-bar">
+        </div>
+        <div class="flex items-center">
+            <a href="notifications.html" class="text-white mr-4">
+                <i class="fas fa-bell text-xl sm:text-2xl"></i>
+            </a>
+            <a href="messages.html" class="text-white mr-4">
+                <i class="fas fa-comments text-xl sm:text-2xl"></i>
+            </a>
+            <a href="profile.html" class="text-white">
+                <i class="fas fa-user text-xl sm:text-2xl"></i>
+            </a>
+        </div>
     </div>
-    <div class="fixed top-0 right-0 m-4">
-        <input type="text" placeholder="Search..." class="search-bar">
+    <div class="sm:hidden fixed top-16 left-0 right-0 bg-black text-white flex justify-center items-center h-12 px-4 transition-colors dark-mode smooth-transition">
+        <input type="text" placeholder="🔍 Search..." class="search-bar w-full">
     </div>
-    <div id="menuDrawer" class="fixed top-0 left-0 h-full w-64 bg-black text-white drawer">
+    <div id="menuDrawer" class="fixed top-0 left-0 h-full w-64 bg-black text-white drawer transition-colors dark-mode smooth-transition">
         <div class="p-4">
             <button id="closeButton" class="text-white mb-4">
                 <i class="fas fa-times text-xl sm:text-2xl"></i>
             </button>
             <ul>
-                <li class="mb-2"><a href="homepage.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-house-laptop mr-2"></i> Home</a></li>
-                <li class="mb-2"><a href="search.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-magnifying-glass-location mr-2"></i> Search</a></li>
-                <li class="mb-2"><a href="edit.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-pen-fancy mr-2"></i> Edit</a></li>
-                <li class="mb-2"><a href="users.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-user-tie mr-2"></i> Users</a></li>
-                <li class="mb-2"><a href="notifications.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-bell-slash mr-2"></i> Notifications</a></li>
-                <li class="mb-2"><a href="messages.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-envelope-open-text mr-2"></i> Messages</a></li>
+                <li class="mb-2"><a href="home.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-home mr-2"></i> Home</a></li>
+                <li class="mb-2"><a href="discover.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-globe mr-2"></i> Discover</a></li>
+                <li class="mb-2"><a href="newsfeed.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-bullhorn mr-2"></i> News Feed</a></li>
+                <li class="mb-2"><a href="groups.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-users mr-2"></i> Groups</a></li>
+                <li class="mb-2"><a href="messages.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-envelope mr-2"></i> Messages</a></li>
+                <li class="mb-2"><a href="analytics.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-chart-bar mr-2"></i> Analytics</a></li>
+                <li class="mb-2"><a href="settings.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-cog mr-2"></i> Settings</a></li>
+                <li class="mb-2"><a href="logout.html" class="text-white p-2 block rounded menu-item flex items-center"><i class="fas fa-sign-out-alt mr-2"></i> Logout</a></li>
+                <li class="mb-2">
+                    <button id="themeToggleButton" class="text-white p-2 block rounded menu-item w-full text-left flex items-center">
+                        <i id="themeIcon" class="fas fa-moon mr-2"></i> Toggle Theme
+                    </button>
+                </li>
                 <li class="mb-2">
                     <button id="openModalButton" class="text-white p-2 block rounded menu-item w-full text-left flex items-center">
                         <i class="fas fa-info-circle mr-2"></i> Info
@@ -118,7 +168,7 @@
             </ul>
         </div>
     </div>
-    <div id="rightDrawer" class="fixed top-0 right-0 h-full w-64 bg-black text-white right-drawer">
+    <div id="rightDrawer" class="fixed top-0 right-0 h-full w-64 bg-black text-white right-drawer transition-colors dark-mode smooth-transition">
         <div class="p-4">
             <button id="closeRightButton" class="text-white mb-4">
                 <i class="fas fa-times text-xl sm:text-2xl"></i>
@@ -130,30 +180,36 @@
             </ul>
         </div>
     </div>
-    <div class="fixed bottom-0 left-0 right-0 bg-black text-white">
+    <div class="fixed bottom-0 left-0 right-0 bg-black text-white transition-colors dark-mode smooth-transition">
         <div class="flex justify-around items-center h-16">
-            <a href="index.html" class="relative menu-item text-white">
-                <i class="fas fa-house-laptop text-xl sm:text-2xl"></i>
-                <span class="absolute top-0 right-0 block h-2 w-2 rounded-full bg-blue-500"></span>
+            <a href="home.html" class="relative menu-item text-white">
+                <i class="fas fa-home text-xl sm:text-2xl"></i>
             </a>
             <a href="search.html" class="menu-item text-white">
-                <i class="fas fa-magnifying-glass-location text-xl sm:text-2xl"></i>
+                <i class="fas fa-search text-xl sm:text-2xl"></i>
             </a>
             <a href="edit.html" class="menu-item text-white">
-                <i class="fas fa-pen-fancy text-xl sm:text-2xl"></i>
+                <i class="fas fa-edit text-xl sm:text-2xl"></i>
             </a>
             <a href="users.html" class="menu-item text-white">
-                <i class="fas fa-user-tie text-xl sm:text-2xl"></i>
+                <i class="fas fa-users text-xl sm:text-2xl"></i>
             </a>
             <a href="notifications.html" class="menu-item text-white">
-                <i class="fas fa-bell-slash text-xl sm:text-2xl"></i>
+                <i class="fas fa-bell text-xl sm:text-2xl"></i>
             </a>
             <a href="messages.html" class="menu-item text-white">
-                <i class="fas fa-envelope-open-text text-xl sm:text-2xl"></i>
+                <i class="fas fa-envelope text-xl sm:text-2xl"></i>
             </a>
             <button id="rightDrawerButton" class="menu-item text-white">
                 <i class="fas fa-user-circle text-xl sm:text-2xl"></i>
             </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content-wrapper transition-colors dark-mode smooth-transition" id="contentWrapper">
+        <div class="main-content">
+            <!-- Future content goes here -->
         </div>
     </div>
 
@@ -170,6 +226,8 @@
         const menuButton = document.getElementById('menuButton');
         const closeButton = document.getElementById('closeButton');
         const menuDrawer = document.getElementById('menuDrawer');
+        const themeToggleButton = document.getElementById('themeToggleButton');
+        const themeIcon = document.getElementById('themeIcon');
         const body = document.body;
 
         const openModalButton = document.getElementById('openModalButton');
@@ -179,6 +237,7 @@
         const rightDrawerButton = document.getElementById('rightDrawerButton');
         const closeRightButton = document.getElementById('closeRightButton');
         const rightDrawer = document.getElementById('rightDrawer');
+        const contentWrapper = document.getElementById('contentWrapper');
 
         menuButton.addEventListener('click', () => {
             menuDrawer.classList.add('drawer-open');
@@ -186,6 +245,72 @@
 
         closeButton.addEventListener('click', () => {
             menuDrawer.classList.remove('drawer-open');
+        });
+
+        themeToggleButton.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                menuDrawer.classList.remove('dark-mode');
+                menuDrawer.classList.add('light-mode');
+                rightDrawer.classList.remove('dark-mode');
+                rightDrawer.classList.add('light-mode');
+                contentWrapper.classList.remove('dark-mode');
+                contentWrapper.classList.add('light-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                closeButton.classList.remove('text-white');
+                closeButton.classList.add('text-black');
+                closeRightButton.classList.remove('text-white');
+                closeRightButton.classList.add('text-black');
+                document.querySelectorAll('.menu-item, .logo-text, .search-bar').forEach(element => {
+                    element.classList.remove('text-white');
+                    element.classList.add('text-black');
+                });
+                document.querySelectorAll('.menu-item i').forEach(icon => {
+                    icon.classList.remove('text-white');
+                    icon.classList.add('text-black');
+                });
+                document.querySelectorAll('.bg-black').forEach(element => {
+                    element.classList.remove('bg-black');
+                    element.classList.add('bg-white');
+                });
+                document.querySelectorAll('.text-white').forEach(element => {
+                    element.classList.remove('text-white');
+                    element.classList.add('text-black');
+                });
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                menuDrawer.classList.remove('light-mode');
+                menuDrawer.classList.add('dark-mode');
+                rightDrawer.classList.remove('light-mode');
+                rightDrawer.classList.add('dark-mode');
+                contentWrapper.classList.remove('light-mode');
+                contentWrapper.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                closeButton.classList.remove('text-black');
+                closeButton.classList.add('text-white');
+                closeRightButton.classList.remove('text-black');
+                closeRightButton.classList.add('text-white');
+                document.querySelectorAll('.menu-item, .logo-text, .search-bar').forEach(element => {
+                    element.classList.remove('text-black');
+                    element.classList.add('text-white');
+                });
+                document.querySelectorAll('.menu-item i').forEach(icon => {
+                    icon.classList.remove('text-black');
+                    icon.classList.add('text-white');
+                });
+                document.querySelectorAll('.bg-white').forEach(element => {
+                    element.classList.remove('bg-white');
+                    element.classList.add('bg-black');
+                });
+                document.querySelectorAll('.text-black').forEach(element => {
+                    element.classList.remove('text-black');
+                    element.classList.add('text-white');
+                });
+            }
         });
 
         openModalButton.addEventListener('click', () => {
@@ -208,6 +333,19 @@
 
         closeRightButton.addEventListener('click', () => {
             rightDrawer.classList.remove('right-drawer-open');
+        });
+
+        // Add smooth navigation to buttons
+        document.querySelectorAll('a, button').forEach(element => {
+            element.addEventListener('click', (event) => {
+                const href = element.getAttribute('href');
+                if (href) {
+                    event.preventDefault();
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300); // Delay to allow smooth transition
+                }
+            });
         });
     </script>
 </body>
